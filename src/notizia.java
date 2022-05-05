@@ -32,14 +32,8 @@ public class notizia {
         //Country Country;
         Scanner input = new Scanner(System.in);
         try{
-            ArrayList <String> NotiziaTitle = new ArrayList<String>();
-            ArrayList <LocalDateTime> NotiziaTimeStamp = new ArrayList<LocalDateTime>();
-            ArrayList <String> NotiziaDescrption = new ArrayList<String>();
-            ArrayList <String> NotiziaAuthor = new ArrayList<String>();
-            ArrayList <String> NotiziaSource = new ArrayList<String>();
-            ArrayList <String> NotiziaCategory = new ArrayList<String>();
 
-
+            ArrayList<notizia> lista = new ArrayList<>();
 
             System.out.println("Inserire il titolo");
             Title= input.next();
@@ -53,14 +47,7 @@ public class notizia {
             System.out.println("Inserire la categoria");
             Category= input.next();
 
-            NotiziaTitle.add(Title);
-            NotiziaTimeStamp.add(TimeStamp);
-            NotiziaDescrption.add(Description);
-            NotiziaAuthor.add(Author);
-            NotiziaSource.add(Source);
-            NotiziaCategory.add(Category);
-
-            ArrayList <ArrayList<String,LocalDateTime>> Notizia = new ArrayList();
+            lista.add(new notizia(Title,TimeStamp,Description,Author,Source,Category));
 
 
 
@@ -125,13 +112,7 @@ public class notizia {
         Category = category;
     }
 
-    public Country getCountry() {
-        return Country;
-    }
 
-    public void setCountry(Country country) {
-        Country = country;
-    }
 
     @Override
     public String toString() {
