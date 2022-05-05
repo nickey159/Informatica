@@ -123,7 +123,6 @@ public class notizia {
                 "\nAuthor='" + Author + '\'' +
                 "\n Source='" + Source + '\'' +
                 "\n Category='" + Category + '\'' +
-                "\n Country=" + Country +
                 '}';
     }
 }
