@@ -9,7 +9,6 @@ public class notizia {
     private String Author;
     private String Source;
     private String Category;
-    //private Country Country;
 
     public notizia(String Title, LocalDateTime TimeStamp, String Description, String Author,
                    String Source, String Category)
@@ -20,49 +19,9 @@ public class notizia {
         this.Author = Author;
         this.Source = Source;
         this.Category = Category;
-        //this.Country = Country;
     }
-    public static void CreaNotizia(){
-        String Title;
-        LocalDateTime TimeStamp;
-        String Description;
-        String Author;
-        String Source;
-        String Category;
-        //Country Country;
-        Scanner input = new Scanner(System.in);
-        try{
-
-            ArrayList<notizia> lista = new ArrayList<>();
-
-            System.out.println("Inserire il titolo");
-            Title= input.next();
-            TimeStamp= LocalDateTime.now();
-            System.out.println("Inserire descrizione");
-            Description=input.next();
-            System.out.println("Inserire autore");
-            Author=input.next();
-            System.out.println("Inserire la fonte");
-            Source= input.next();
-            System.out.println("Inserire la categoria");
-            Category= input.next();
-
-            lista.add(new notizia(Title,TimeStamp,Description,Author,Source,Category));
 
 
-
-
-
-        }
-        catch(Exception e ){
-            System.out.println("Errore");
-
-        }
-
-
-
-
-    }
 
     public String getTitle() {
         return Title;
@@ -112,17 +71,52 @@ public class notizia {
         Category = category;
     }
 
+    public static ArrayList CreaNotizia(){
+        ArrayList <notizia> Notizia = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        try{
+            boolean b = true;
+            while (b == true){
+                System.out.println("inserire titolo");
+                String Titolo = input.next();
+                LocalDateTime n = LocalDateTime.now();
+                System.out.println("inserire descrizione");
+                String Descrizione = input.next();
+                System.out.println("inserire autore");
+                String Autore = input.next();
+                System.out.println("inserire fonte");
+                String Fonte = input.next();
+                System.out.println("inserire categoria");
+                String Categoria = input.next();
+                Notizia.add(new notizia(Titolo,n,Descrizione,Autore,Fonte,Categoria));
+                System.out.println("inserire false per fermare");
+                 b = input.nextBoolean();
 
+
+            }
+        }
+        catch (Exception e ){
+            System.out.println("Errore");
+        }
+        return Notizia;
+    }
+
+    public static void StampaNotizia(ArrayList Notizia){
+        for (int i =0; i< Notizia.size();i++){
+            System.out.println(Notizia.get(i));
+        }
+
+    }
 
     @Override
     public String toString() {
-        return "notizia{" +
+        return "\nnotizia{" +
                 "\nTitle='" + Title + '\'' +
-                "\n TimeStamp=" + TimeStamp +
-                "\n Description='" + Description + '\'' +
-                "\nAuthor='" + Author + '\'' +
-                "\n Source='" + Source + '\'' +
-                "\n Category='" + Category + '\'' +
+                ", \nTimeStamp=" + TimeStamp +
+                ", \nDescription='" + Description + '\'' +
+                ", \nAuthor='" + Author + '\'' +
+                ", \nSource='" + Source + '\'' +
+                ", \nCategory='" + Category + '\'' +
                 '}';
     }
 }
