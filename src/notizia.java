@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class notizia {
-    private String Title;
-    private LocalDateTime TimeStamp;
-    private String Description;
-    private String Author;
-    private String Source;
-    private String Category;
+    public String Title;
+    public LocalDateTime TimeStamp;
+    public String Description;
+    public String Author;
+    public String Source;
+    public String Category;
 
     public notizia(String Title, LocalDateTime TimeStamp, String Description, String Author,
                    String Source, String Category)
@@ -71,53 +71,45 @@ public class notizia {
         Category = category;
     }
 
-    public static ArrayList CreaNotizia(){
-        ArrayList <notizia> Notizia = new ArrayList<>();
+
+    public static ArrayList CreaNotizia(int dim){
+        ArrayList <notizia> Notizia= new ArrayList<notizia>(dim);
         Scanner input = new Scanner(System.in);
-        try{
-            boolean b = true;
-            while (b == true){
-                System.out.println("inserire titolo");
-                String Titolo = input.next();
-                LocalDateTime n = LocalDateTime.now();
-                System.out.println("inserire descrizione");
-                String Descrizione = input.next();
-                System.out.println("inserire autore");
-                String Autore = input.next();
-                System.out.println("inserire fonte");
-                String Fonte = input.next();
-                System.out.println("inserire categoria");
-                String Categoria = input.next();
-                Notizia.add(new notizia(Titolo,n,Descrizione,Autore,Fonte,Categoria));
-                System.out.println("inserire false per fermare");
-                 b = input.nextBoolean();
-
-
-            }
-        }
-        catch (Exception e ){
-            System.out.println("Errore");
+        String Titolo;
+        LocalDateTime n;
+        String Descrizione;
+        String Autore;
+        String Fonte;
+        String Categoria;
+        for (int i =0; i<dim;i++) {
+            System.out.println("inserire titolo");
+            Titolo = input.next();
+            n = LocalDateTime.now();
+            System.out.println("inserire descrizione");
+            Descrizione = input.next();
+            System.out.println("inserire autore");
+            Autore = input.next();
+            System.out.println("inserire fonte");
+            Fonte = input.next();
+            System.out.println("inserire categoria");
+            Categoria = input.next();
+            Notizia.add(new notizia(Titolo,n,Descrizione,Autore, Fonte, Categoria));
         }
         return Notizia;
     }
 
-    public static void StampaNotizia(ArrayList Notizia){
-        for (int i =0; i< Notizia.size();i++){
-            System.out.println(Notizia.get(i));
+    public static void StampaNotizia(ArrayList list){
+        for (int i =0; i< list.size();i++){
+                System.out.println(list.get(i));
         }
 
     }
 
     @Override
     public String toString() {
-        return "\nnotizia{" +
-                "\nTitle='" + Title + '\'' +
-                ", \nTimeStamp=" + TimeStamp +
-                ", \nDescription='" + Description + '\'' +
-                ", \nAuthor='" + Author + '\'' +
-                ", \nSource='" + Source + '\'' +
-                ", \nCategory='" + Category + '\'' +
-                '}';
+        return "\nnotizia:" +
+                "\nTitle=" + Title + " \nTimeStamp=" + TimeStamp +" \nDescription=" + Description +"\nAuthor=" + Author +" \nSource=" + Source +
+                " \nCategory=" + Category ;
     }
 }
 /*StringBuilder buffer = new StringBuilder();
