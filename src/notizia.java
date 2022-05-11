@@ -1,6 +1,8 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
+import java.util.Comparator;
 
 public class notizia {
     public String Title;
@@ -11,8 +13,7 @@ public class notizia {
     public String Category;
 
     public notizia(String Title, LocalDateTime TimeStamp, String Description, String Author,
-                   String Source, String Category)
-    {
+                   String Source, String Category) {
         this.Title = Title;
         this.TimeStamp = TimeStamp;
         this.Description = Description;
@@ -20,7 +21,6 @@ public class notizia {
         this.Source = Source;
         this.Category = Category;
     }
-
 
 
     public String getTitle() {
@@ -72,8 +72,8 @@ public class notizia {
     }
 
 
-    public static ArrayList CreaNotizia(int dim){
-        ArrayList <notizia> Notizia= new ArrayList<notizia>(dim);
+    public static ArrayList CreaNotizia(int dim) {
+        ArrayList<notizia> Notizia = new ArrayList<notizia>(dim);
         Scanner input = new Scanner(System.in);
         String Titolo;
         LocalDateTime n;
@@ -81,7 +81,7 @@ public class notizia {
         String Autore;
         String Fonte;
         String Categoria;
-        for (int i =0; i<dim;i++) {
+        for (int i = 0; i < dim; i++) {
             System.out.println("inserire titolo");
             Titolo = input.next();
             n = LocalDateTime.now();
@@ -93,23 +93,36 @@ public class notizia {
             Fonte = input.next();
             System.out.println("inserire categoria");
             Categoria = input.next();
-            Notizia.add(new notizia(Titolo,n,Descrizione,Autore, Fonte, Categoria));
+            Notizia.add(new notizia(Titolo, n, Descrizione, Autore, Fonte, Categoria));
         }
         return Notizia;
     }
 
-    public static void StampaNotizia(ArrayList list){
-        for (int i =0; i< list.size();i++){
-                System.out.println(list.get(i));
+    public static void StampaNotizia(ArrayList list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
         }
 
     }
-
     @Override
     public String toString() {
         return "\nnotizia:" +
                 "\nTitle=" + Title + " \nTimeStamp=" + TimeStamp +" \nDescription=" + Description +"\nAuthor=" + Author +" \nSource=" + Source +
                 " \nCategory=" + Category ;
+    }
+
+    public static void FilterNewsByNameAsc(ArrayList Parsed){
+        ArrayList<notizia>Notizia = Parsed;
+        Collections.sort(Notizia, new Comparator<notizia>() {
+
+            @Override
+            public int compare(notizia o1, notizia o2) {
+                return o1.getTitle().compareTo(o2.getTitle());
+            }
+        });
+        System.out.println(Notizia);
+
+
     }
 }
 /*StringBuilder buffer = new StringBuilder();

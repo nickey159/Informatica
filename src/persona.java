@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class persona {
     private String Username;
 
@@ -19,4 +21,6 @@ public class persona {
                 "Username='" + Username + '\'' +
                 '}';
     }
+
+
 }

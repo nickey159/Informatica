@@ -7,10 +7,11 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class admin extends persona{
+    String Password;
 
-
-    public admin(String Username) {
+    public admin(String Username,String Password) { // metto la password
         super(Username);
+        this.Password=Password;
     }
     public static void BackupNews(ArrayList Notizia){
         try {
@@ -46,12 +47,23 @@ public class admin extends persona{
         Fonte = input.next();
         System.out.println("inserire categoria nuova");
         Categoria = input.next();
-        notizia.remove(index);
-        notizia.add(index,notizia);
+        notizia.set(index,"ee" );
+    }
+    public static void DeleteNews(ArrayList Notizia, int index){
+        Notizia.remove(index);
+    }
+
+    public static void GetNews(ArrayList Notizia){
+        System.out.println(Notizia);
+    }
+
+    public static ArrayList FilterNewsByDate(ArrayList Notizia){
+        ArrayList <notizia>  Notizia1 = Notizia;
+        return Notizia1;
 
     }
-    public static void DeleteNews(ArrayList notizia, int index){
-        notizia.remove(index);
-    }
+
+
+
 
 }
