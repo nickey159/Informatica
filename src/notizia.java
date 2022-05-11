@@ -121,10 +121,96 @@ public class notizia {
             }
         });
         System.out.println(Notizia);
-
-
     }
+    public static void FilterNewsByNameDesc(ArrayList Parsed){
+        ArrayList<notizia>Notizia = Parsed;
+        Collections.sort(Notizia, new Comparator<notizia>() {
+
+            @Override
+            public int compare(notizia o1, notizia o2) {
+                return o2.getTitle().compareTo(o1.getTitle());
+            }
+        });
+        System.out.println(Notizia);
+    }
+
+    /*public static void FilterNewsByDateAsc(ArrayList Parsed){
+        ArrayList<notizia>Notizia = Parsed;
+        Collections.sort(Notizia, new Comparator<notizia>() {
+
+            @Override
+            public int compare(notizia o1, notizia o2) {
+                return o1.getTimeStamp().compareTo(o2.getTimeStamp());
+            }
+        });
+        System.out.println(Notizia);
+    }
+    public static void FilterNewsByDateDesc(ArrayList Parsed){
+        ArrayList<notizia>Notizia = Parsed;
+        Collections.sort(Notizia, new Comparator<notizia>() {
+
+            @Override
+            public int compare(notizia o1, notizia o2) {
+                return o2.getTimeStamp().compareTo(o1.getTimeStamp());
+            }
+        });
+        System.out.println(Notizia);
+    }*/
+    public static void FilterNewsByAuthor(ArrayList Parsed, String Author){
+        ArrayList<notizia>Notizia = Parsed;
+        String cerca = Author;
+        for (int i =0; i<Notizia.size();i++){
+            if(Notizia.get(i).getAuthor().equals(cerca)){
+                System.out.println(Notizia.get(i));
+            }
+
+        }
+    }
+    public static void FilterNewsByCategoria(ArrayList Parsed, String Categoria){
+        ArrayList<notizia>Notizia = Parsed;
+        String cerca = Categoria;
+        for (int i =0; i<Notizia.size();i++){
+            if(Notizia.get(i).getCategory().equals(cerca)){
+                System.out.println(Notizia.get(i));
+            }
+
+        }
+    }
+    public static void FilterNewsByDate(ArrayList Parsed, LocalDateTime data){
+        ArrayList<notizia>Notizia = Parsed;
+        for (int i =0; i<Notizia.size();i++){
+            if(Notizia.get(i).getTimeStamp()==data){
+                System.out.println(Notizia.get(i));
+            }
+
+        }
+    }
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*StringBuilder buffer = new StringBuilder();
 boolean processedFirst = false;
 String firstParam = null, secondParam = null;
