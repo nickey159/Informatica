@@ -1,9 +1,11 @@
+package Informatica.src;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 import java.util.Comparator;
-
+ 
 public class notizia {
     public String Title;
     public LocalDateTime TimeStamp;
